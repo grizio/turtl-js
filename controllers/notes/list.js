@@ -85,7 +85,7 @@ const NotesListController = Composer.ListController.extend({
 						// out the actual note model from the profile (which was
 						// pre-loaded and decrypted)
 						var note = notes.get(model.id());
-						var con = new NotesItemController({
+						var con = new NotesItem2Controller({
 							inject: options.container,
 							model: note,
 							embed_notes: true,
@@ -165,19 +165,6 @@ const NotesListController = Composer.ListController.extend({
 
 	update_masonry: function()
 	{
-		if(this.viewstate.mode != 'masonry') return;
-
-		if(!this.masonry) {
-			this.masonry = new Masonry(this.note_list, {
-				itemSelector: '.note-list > .note.item',
-				columnWidth: '.note-list > .note.item',
-				percentPosition: true,
-				transitionDuration: 0,
-			});
-			return;
-		}
-		this.masonry.reloadItems();
-		this.masonry.layout();
 	},
 
 	paginate: function(e)
