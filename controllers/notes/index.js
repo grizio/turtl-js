@@ -179,13 +179,21 @@ var NotesIndexController = Composer.Controller.extend({
 	render: function()
 	{
 		this.html(view.render('notes/index', {}));
-		this.sub('list', function() {
-			return new NotesListController({
-				inject: this.note_list,
-				search: this.search,
-				notes: this.notes,
-			});
-		}.bind(this));
+		this.sub('list', () => {
+			if (turtl.user.feature_flag('list_format') === 'list') {
+				return new NotesListAsListController({
+					inject: this.note_list,
+					search: this.search,
+					notes: this.notes,
+				});
+			} else {
+				return new NotesListAsGridController({
+					inject: this.note_list,
+					search: this.search,
+					notes: this.notes,
+				});
+			}
+		});
 	},
 
 	open_add: function(type)

@@ -18,6 +18,7 @@ config.routes = {
 	'/settings/export': handlers.settings.export,
 	'/settings/logs': handlers.settings.logs,
 	'/settings/feedback': handlers.settings.feedback,
+	'/settings/feature-flags': handlers.settings.feature_flags,
 
 	'/': handlers.notes.index
 };

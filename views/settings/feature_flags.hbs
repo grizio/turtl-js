@@ -1,0 +1,34 @@
+{{#if connected}}
+  <div class="section">
+    <h3>{{t 'Note list format'}}</h3>
+
+    <div>
+      <label>
+        <input type="radio" name="list_format" value="grid" id="list_format_grid" {{#equal-or feature_flags.list_format 'grid' undefined}}checked{{/equal-or}}/>
+        {{t 'Grid (default)'}}
+      </label>
+    </div>
+    <div>
+      <label>
+        <input type="radio" name="list_format" value="list" id="list_format_list" {{#equal feature_flags.list_format 'list'}}checked{{/equal}}/>
+        {{t 'List'}}
+      </label>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <div class="button login">
+      <input type="submit" class="button" value="{{t 'Save'}}"/>
+    </div>
+    <p class="load">
+      {{svg 'loading'}}
+    </p>
+  </div>
+{{else}}
+  <p class="page-empty">
+    {{icon 'connection'}}
+    {{t 'Changing your settings requires being connected.'}}
+    <small>{{t 'You are currently in offline mode.'}}</small>
+  </p>
+{{/if}}
+

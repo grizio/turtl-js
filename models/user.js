@@ -153,6 +153,11 @@ var User = SyncModel.extend({
 		return this.save();
 	},
 
+	feature_flag: function(key)
+	{
+		return this.setting('feature_flags')[key];
+	},
+
 	resend_confirmation: function()
 	{
 		return turtl.core.send('user:resend-confirmation');
