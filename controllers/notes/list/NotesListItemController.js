@@ -47,7 +47,7 @@ const NotesListItemController = NoteBaseController.extend({
 			}
 		}
 		const board = turtl.profile.get('boards').get(this.model.get('board_id'));
-		this.html(view.render('notes/item-for-list', {
+		this.html(view.render('notes/list/item-for-list', {
 			board: board ? board.toJSON() : null,
 			note: note
 		})).bind(this);

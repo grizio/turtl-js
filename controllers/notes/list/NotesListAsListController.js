@@ -123,7 +123,7 @@ const NotesListAsListController = Composer.ListController.extend({
   {
     var empty = this.viewstate.empty && !this.viewstate.searching;
     var no_results = this.viewstate.no_results && this.viewstate.searching;
-    return this.html(view.render('notes/list', {
+    return this.html(view.render('notes/list/list', {
       state: this.viewstate,
       empty: empty,
       no_results: no_results,
