@@ -266,7 +266,17 @@ var NotesEditController = FormController.extend({
 			boards: boards,
 			type: type,
 			colors: colors
-		}));
+		})).then(() => {
+			new SimpleMDE({
+				element: this.inp_text,
+				autofocus: true,
+				spellChecker: false,
+				forceSync: true,
+				status: false,
+				toolbar: false,
+				autoDownloadFontAwesome: false
+			})
+		});
 	},
 
 	grab_form_data: function()
